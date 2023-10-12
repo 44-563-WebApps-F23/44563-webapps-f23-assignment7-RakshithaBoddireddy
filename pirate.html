@@ -20,6 +20,7 @@
     <p id="penalty" style="color: blue;font-family: 'Times New Roman', Times, serif;">Penalty is zero</p>
     <p style="color: blue;font-family: 'Times New Roman', Times, serif;">Click for help</p>
     <p id="help" style="color: blue;font-family: 'Times New Roman', Times, serif;">Help report</p>
+    <button id="newGameButton" onclick="newGame()">New Game</button>
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
@@ -174,7 +175,29 @@
             
         }
         document.getElementById("help").textContent = helpText;
-        
+        function newGame() {
+            
+            checkCount = 0;
+            penalty = 0;
+            lastCheck = 0;
+            gameOver = false;
+
+            treasureLocation = Math.floor(Math.random() * 25);
+
+            do {
+                trapLocation = Math.floor(Math.random() * 25);
+
+            } while (trapLocation === treasureLocation);
+
+            document.getElementById("locations").innerHTML = "Number of locations checked is : " + checkCount;
+            document.getElementById("penalty").innerHTML = "Penalty is : " + penalty;
+            document.getElementById("help").textContent = "Help report";
+
+            for (var i = 0; i < 25; i++) 
+            {
+                document.getElementById(ids[i]).src = "bear.jpg"
+            }
+        }
     
     
     </script>
