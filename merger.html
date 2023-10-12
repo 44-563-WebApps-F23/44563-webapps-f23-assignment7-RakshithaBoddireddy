@@ -34,7 +34,10 @@
 	
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
-		<button onclick="makeNewDiv()">Add end</button>
+		<button type="button" class="btn btn-primary" onclick="makeNewDiv()">Add end</button>.
+		<button type="button" class="btn btn-primary" onclick="addFront()">Add front</button>
+		<button type="button" class="btn btn-primary" onclick="remove()">Remove</button>
+
 	
 	
 </body>
@@ -50,5 +53,24 @@
 		container.appendChild(element)
 		
 	}
+	function remove() {
+        let mergerItems = document.getElementsByClassName("merger");
+
+        let lengthOfMergerItems = mergerItems.length;
+        let middleIndex = Math.floor(lengthOfMergerItems / 2);
+        if (lengthOfMergerItems > 0) {
+            mergerItems[middleIndex].remove();
+        }
+    }
+
+    function addFront() {
+        let newElement = document.createElement("div");
+        newElement.innerHTML = document.getElementById("inputText").value;
+        newElement.className = "merger";
+		newElement.style.color = "blue";
+
+        let container = document.getElementById('target');
+        container.insertBefore(newElement, container.firstChild);
+    }
 </script>
 </html>	
